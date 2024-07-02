@@ -1,0 +1,618 @@
+.videoPageContainer {
+  width: 100%;
+  height: 90vh;
+  position: absolute;
+  margin-top: 60px;
+  background-color: gray;
+  display: flex;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+
+.leftVideoPart {
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  overflow-x: scroll;
+}
+
+.leftVideoPart::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---for firefox  */
+.leftVideoPart::-moz-scrollbar {
+  display: none; /* For Firefox */
+}
+
+.width70 {
+  width: 70%;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.leftVideoPart video {
+  width: 100%;
+}
+
+.height500 {
+  height: 500px;
+}
+
+.height550 {
+  height: 550px;
+}
+
+.rightVideoPart {
+  height: 100%;
+  background-color: rgb(46, 46, 72);
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.25, 0.75);
+  overflow-y: scroll;
+}
+
+.rightVideoPart::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---for firefox  */
+.rightVideoPart::-moz-scrollbar {
+  display: none; /* For Firefox */
+}
+
+.courseContent {
+  height: 60px;
+  width: 100%;
+  background-color: rgb(46, 46, 72);
+  border: 1.3px solid white;
+  color: whitesmoke;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.courseContent img {
+  height: 32px;
+  width: 32px;
+}
+
+.width0{
+  width: 0%;
+}
+
+.width30{
+  width: 30%;
+}
+
+.backCourseContent {
+  width: 80px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  z-index: 3;
+  border: 1.3px solid white;
+  background-color: rgb(46, 46, 72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backCourseContent img {
+  height: 32px;
+  width: 32px;
+}
+
+.showCourseContentBox {
+  display: flex;
+}
+
+.hideCourseContentBox {
+  display: none;
+}
+
+.displayFlex {
+  display: flex;
+}
+
+.displayNone {
+  display: none;
+}
+
+
+.sectionBoxOFVideo {
+  width: 100%;
+  height: max-content;
+  background-color: rgb(72, 72, 95);
+  border: 1.3px solid rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contentOfSectionBoxOfVideo {
+  height: max-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.subContentOfSectionBoxOfVideo {
+  color: white;
+  min-height: 60px;
+  height: max-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(72, 72, 95);
+  border: 1.3px solid rgb(255, 255, 255);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.subContentOfSectionBoxOfVideo p {
+  font-weight: 600;
+  width: 80%;
+}
+
+.subContentOfSectionBoxOfVideo img {
+  height: 20px;
+  width: 20px;
+  transition: transform 0.15s ease-in-out;
+}
+
+.dropdownOfContentOfSectionBoxOfVideo {
+  width: 100%;
+  height: max-content;
+  padding: 10px;
+  background-color: rgb(100, 100, 120);
+  border: 1.3px solid rgb(255, 255, 255);
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+/* ---------------------overview------------------------- */
+
+.videoContentBoxBelowVideo {
+  width: 100%;
+  height: max-content;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.videoContentBoxBelowVideoBar {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  border-bottom: 1.3px solid gray;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  gap: 30px;
+  font-size: 20px;
+}
+
+.videoContentBoxBelowVideoBar p {
+  cursor: pointer;
+}
+
+.heading {
+  font-size: 25px;
+  font-weight: 500;
+  color: black;
+}
+
+/* --------------overview--------------------- */
+
+.overview {
+  width: 100%;
+  height: 500px;
+  /* background-color: gray; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.byTheNumber {
+  width: 100%;
+  height: max-content;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1.3px solid gray;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.ByTheNumberContainer {
+  width: 100%;
+  height: max-content;
+  display: flex;
+}
+
+.p1 {
+  width: 200px;
+  height: max-content;
+  margin-left: 20px;
+}
+
+.content1_byTheNumber {
+  display: flex;
+  flex-direction: column;
+}
+
+.content2_byTheNumber {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.descriptionOverview {
+  width: 100%;
+  height: max-content;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1.3px solid gray;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.descriptionOverviewContainer {
+  display: flex;
+}
+
+.desc {
+  width: 700px;
+}
+
+
+
+/* ----------------notes part---------------- */
+
+.notes {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+}
+
+.topRatingContentBox {
+  width: 800px;
+  height: max-content;
+}
+
+.topRatingContentBoxHeading {
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  font-weight: 600;
+  margin-left: 30px;
+}
+
+.ratingBox {
+  height: calc(100% - 50px);
+  width: 100%;
+  display: flex;
+}
+
+.ratingNumber {
+  width: 150px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap:3px;
+  align-items: center;
+}
+
+.ratingNumber p:first-child {
+  font-size: 80px;
+  letter-spacing: -6px;
+  color: #FFC107;
+}
+
+.ratingNumber p:last-child {
+  color: #FFC107;
+  font-weight: 600;
+}
+
+.ratingNumber img {
+  height: 50px;
+  margin-top: -20px;
+  width: 50px;
+}
+
+
+.ratingLine {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.linesOfRating {
+  width: 95%;
+  height: 10px;
+  background-color: rgb(209, 209, 209);
+}
+
+.cc {
+  margin-top: 30px;
+}
+
+.ratingPercent {
+  width: 150px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 9.5px;
+}
+
+.starPercent {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.cc1 {
+  margin-top: 25px;
+}
+.starPercent img {
+  width: 22px;
+  height: 22px;
+}
+
+.starPercent p {
+  font-size: 20px;
+  color: #FFC107;
+}
+
+.reveiwHeading {
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  font-weight: 600;
+  padding-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-top: 30px;
+}
+
+.btnRating {
+  width: 150px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 100;
+  color: black;
+  background-color: white;
+  border-radius: 0;
+  border: 1.3px solid black;
+  cursor: pointer;
+}
+
+.btnRating:hover {
+  background-color: #e6e6e6;
+  color: rgb(0, 0, 0);
+}
+
+.reviewBoxContainer {
+  width: 800px;
+  height: max-content;
+  margin-top: 30px;
+}
+
+.reviewContainer {
+  width: 100%;
+  height: max-content;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1.3px solid gray;
+  display: flex;
+}
+
+.forImage {
+  width: 70px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.circle3 {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 50%;
+  color: white;
+  background-color: rgb(40, 40, 40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forReviewContent {
+  width: calc(100% - 70px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.forReviewContent p:first-child {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 600;
+  margin-left: 50px;
+}
+
+.forReviewContent p:nth-child(2) {
+  margin-left: 50px;
+  font-size: 12px;
+}
+
+.forReviewContent p:last-child {
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+
+
+/* -----------------addreview- ------------------- */
+
+.anothername {
+  position: relative;
+}
+
+.addreview {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(64, 64, 64, 0.86);
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addReviewBox {
+  width: 700px;
+  height: max-content;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addReviewBox h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.addReviewBox select {
+  font-size: 20px;
+  font-weight: 100;
+  width: 80%;
+  height: 50px;
+  outline: none;
+  border: 1.3px solid black;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+.addReviewBox textarea {
+  width: 80%;
+  margin-top: 20px;
+  max-height: 300px;
+  height: 150px;
+  outline: none;
+  border: 1.3px solid black;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.btnsOfReview {
+  width: 80%;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
+.btnsOfReview p {
+  margin-top: 20px;
+  background-color: blueviolet;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* ----------------------Notes--------------------- */
+
+.Notes {
+  width: 100%;
+  height: max-content;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+}
+
+.addNotesContainer {
+  width: 800px;
+  height: 200px;
+  margin-top: 30px;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.addNotesContainer h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-left: 30px;
+}
+.inputPlus {
+  display: flex;
+  cursor: pointer;
+}
+.inputPlus p {
+  height: 40px;
+  padding-right: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 1.3px solid black;
+  border-left: 0px;
+  font-size: 30px;
+}
+.inputPlus input {
+  outline: none;
+  border: 1.3px solid black;
+  border-right: 0px;
+  width: 80%;
+  height: 40px;
+  margin-left: 30px;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.red{
+  background-color: rgb(201, 230, 255) !important;
+}
+
+.notesBtn {
+  display: flex;
+  margin-left: 30px;
+  gap: 10px;
+}
+
+.notesBtn p:first-child {
+  padding: 10px;
+  background-color: blueviolet;
+  color: white;
+}
+
+.notesBtn p:last-child {
+  padding: 10px;
+  background-color: red;
+  color: white;
+}

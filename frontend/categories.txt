@@ -1,0 +1,88 @@
+1. web development
+	js
+	reactjs
+	angular
+	nextjs
+	css
+	html
+	asp.net core
+	nodejs
+2. data science
+	ML
+	Python
+	Dp
+	AI
+	NLP
+	LangChain
+	Data analysis
+	R
+3. mobile dev
+	google flutter
+	android dev
+	ios	
+	react native
+	dart
+	swift
+	kotlin
+	mobile app dev
+	swiftUI
+4. Prograaming lang
+	python
+	java
+	c#
+	c++
+	Reactjs
+	Go
+	spring framework
+	C
+	js
+5. game dev
+	unreal engine
+	unity
+	game dev funda
+	godot
+	c#
+	3D
+	c++
+	2D
+	unreal engine blueprint
+6. database desing and dev
+	sql
+	MySQL
+	NoSQL
+	dbms
+	sql server
+	PostgreSQL
+	Apache kafka
+	mongoDb
+	oracle sql
+	db programming
+7. software testing
+	selenium webdriver
+	automation testing
+	java
+	postman
+	selenium testing framework
+	api testing
+8. software engineering
+	data structure
+	algo
+	codeing interview
+	microservice
+	bankend dev
+	python
+9. software dev tool
+	docker 
+	git
+	Kubernetes
+	jira
+	prompt engineering
+	GitHub
+	devOps	
+10. NO coding dev
+	generative AI
+	wordpress
+	web desing
+	app developemtn
+	custom GPTs/ GPT builder
+	

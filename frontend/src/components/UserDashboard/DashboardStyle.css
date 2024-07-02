@@ -1,0 +1,273 @@
+.dashboard_container  {
+  height: calc(100vh - 60px);
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  display: flex;
+}
+
+/* ---------------leftPartDashboard--------------- */
+
+.leftPartDashboard {
+  width: 250px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  /* border-right: 1px solid gray; */
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.leftPartDashboard p {
+  padding-left: 20px;
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 300;
+  width: 100%;
+  cursor: pointer;
+}
+
+.leftPartDashboard p:first-child {
+  margin-top: 20px;
+}
+
+.active1 {
+  background-color: rgba(184, 184, 184, 0.3);
+}
+
+/* ---------------rightPartDashboard--------------- */
+
+.rightPartDashboard {
+  width: calc(100% - 250px);
+  height: 100%;
+}
+
+/* ---------------your Course----------------------- */
+
+.yourCourse_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.yourCourseBar {
+  width: 90%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.line {
+  height: 100%;
+  width: 1.5px;
+  background-color: black;
+}
+
+.yourCourseBar p {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.activeYourCourseBar {
+  background-color: rgb(211, 211, 211);
+}
+
+.createdCourse_contaier {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* -------------------user setting -----------------*/
+
+.user_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user_content{
+  margin-top: 20px;
+  width: 90%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.usernameBox {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.usernameBox p:first-child {
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.usernameBox p:last-child {
+  background-color: rgb(0, 222, 0);
+  width: 140px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.emailBox {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.emailBox p:first-child {
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.emailBox p:last-child {
+  background-color: rgb(0, 222, 0);
+  width: 140px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+
+/* ----------------password reset---------------- */
+
+.password_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box_password{
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.box_password h1 {
+  margin-bottom: 30px;
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.cover {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.cover p {
+  align-self: start;
+  font-weight: 400;
+}
+
+.cover input {
+  width: 100%;
+  height: 40px;
+  font-size: 30px;
+  outline: none;
+}
+
+.changeBtn{
+  background-color: rgb(60, 242, 60);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  width: 90%;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 0px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+
+/* --------------------------create course------------------------- */
+
+#createCourseBoxUserDashboard {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+}
+
+#createCourseBoxUserDashboardBox {
+  
+  min-width: 300px;
+  width: max-content;
+  height: 200px;
+  background-color: white;
+  gap: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#createCourseBoxUserDashboardBox h1 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#createCourseBoxUserDashboardChangeBtn{
+  padding: 10px;
+  width: 100px;
+  text-transform: capitalize;
+  color: white;
+  text-align: center;
+  background-color: rgb(0, 231, 0);
+  cursor: pointer;
+}
+
+
+/* ----------------------profession -----------------------*/
+
+
+.taps {
+  width: 100%;
+  min-height: 80px;
+  max-height: 280px;
+  border: 1.3px solid rgb(198, 198, 198);
+  font-size: 15px;
+  padding: 10px;
+  outline: none;
+}

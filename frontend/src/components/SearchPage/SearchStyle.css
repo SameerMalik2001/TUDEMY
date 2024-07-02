@@ -1,0 +1,167 @@
+.search_container{
+  height: 100vh;
+  width: 100%;
+}
+
+.search_content {
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* -----------------heading part-------------------- */
+
+.search_heading {
+  width: 90%;
+  height: 60px;
+  margin-top: 20px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.search_heading h1 {
+  font-size: 30px;
+  font-weight: 500;
+  color: black;
+}
+
+
+/* ----------------- upper filter part------------------- */
+
+.upperFilter {
+  width: 90%;
+  height: 60px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.filterBtn {
+  width: 100px;
+  height: 100%;
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.filterBtn p {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.filterBtn img {
+  width: 30px;
+  height: 30px;
+}
+
+.sortedDropdown {
+  width: 200px;
+  height: 100%;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.sortedDropdown select {
+  height: 100%;
+  width: 100%;
+  font-size: large;
+  outline: none;
+  border: none;
+}
+
+.resetFilter {
+  width: 100px;
+  height: 100%;
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.resetFilter p {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.coursesOFSearch {
+  width: 90%;
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+/* --------------left filter---------------- */
+
+.leftFilter {
+  width: 250px;
+  height: 450px;
+  background-color: white;
+  border: 1px solid black;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  position: sticky;
+  top: 70px;
+}
+
+.toggleUpFilter {
+  display: none;
+}
+
+.toggleDownFilter {
+  display: flex;
+}
+
+.content1 {
+  width: 100%;
+  background-color: white;
+  text-transform: capitalize;
+}
+
+.content1 h1 {
+  font-size: 20px;
+  font-weight: 40px;
+  margin-left: 10px;
+}
+
+.option1 input{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.rightContent {
+  height: max-content;
+  background-color: rgb(255, 255, 255);
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.rightContent .cart_course_box:first-child {
+  margin-top: 20px;
+}
+
+.rightContentFull {
+  width: 100%;
+}
+
+.rightContentReal {
+  width: calc(100% - 250px - 20px);
+}
