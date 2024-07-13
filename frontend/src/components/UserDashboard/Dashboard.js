@@ -168,7 +168,6 @@ const Dashboard = () => {
               withCredentials: true,
             })
             .then((response) => {
-              setTokens(response.data.data);
               TokenValidation(response.data.data);
             })
             .catch((err) => console.log(err));
@@ -176,36 +175,32 @@ const Dashboard = () => {
         fetchCookies();
       }
     }, 200);
+
+    setTimeout(()=>{
+      TokenValidation()
+    }, 200)
   }, []);
 
-  const TokenValidation = (tokens1) => {
-    console.log(tokens1);
+  const TokenValidation = () => {
     if (loggedIn === false) {
-      if (
-        tokens1?.accessToken === undefined ||
-        tokens1?.accessToken === null ||
-        tokens1?.accessToken === ""
-      ) {
-        setLoggedIn(false);
-        console.log("chala false ho gaya", tokens1?.accessToken);
-      } else {
-        const checkForTokenValidation = async () => {
-          await axios
-            .get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
-              withCredentials: true,
-            })
-            .then((response) => {
-              console.log(tokens1);
-              console.log(response.data.data);
-              if (response.data.data !== undefined) setLoggedIn(true);
-            })
-            .catch((error) => {
-              console.log(error);
-              setLoggedIn(false);
-            });
-        };
-        checkForTokenValidation();
-      }
+      const checkForTokenValidation = async () => {
+        await axios
+          .get(
+            `${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`,
+            {
+              withCredentials: true
+            }
+          )
+          .then((response) => {
+            console.log(response.data.data);
+            if (response.data.data !== undefined) setLoggedIn(true);
+          })
+          .catch((error) => {
+            console.log(error);
+            setLoggedIn(false);
+          });
+      };
+      checkForTokenValidation();
     }
   };
 
