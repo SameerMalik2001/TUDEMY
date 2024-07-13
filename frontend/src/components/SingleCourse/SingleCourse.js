@@ -343,7 +343,7 @@ const SingleCourse = () => {
       "Content-Type": "application/json",
     };
     const response = await fetch(
-      "${process.env.REACT_APP_BACKEND_URL}/api/payments/paymentDone",
+      `${process.env.REACT_APP_BACKEND_URL}/api/payments/paymentDone`,
       {
         method: "POST",
         headers: headers,
