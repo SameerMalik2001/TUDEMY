@@ -94,7 +94,7 @@ const loginUser = asyncHandler(async (req, res) => {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'None',
-    maxAge: 24 * 60 * 60 * 1000 
+    maxAge: 24 * 60 * 60 * 1000
   };
 
   return res.status(201)
@@ -122,8 +122,10 @@ const logoutUser = asyncHandler(async (req, res) => {
 
   const options = {
     httpOnly: true,
-    // secure: true
-  }
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'None',
+    maxAge: 0
+  };
 
   res.clearCookie("accessToken", options);
   res.clearCookie("refreshToken", options);
