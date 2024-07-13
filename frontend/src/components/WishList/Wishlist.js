@@ -223,7 +223,7 @@ const Wishlist = () => {
       else {
         const checkForTokenValidation = async () => {
           await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
-            headers: { Authorization: 'Bearer ' + tokens1?.accessToken }, withCredentials: true })
+             withCredentials: true })
             .then((response) => {
               console.log(tokens1);
               console.log(response.data.data);

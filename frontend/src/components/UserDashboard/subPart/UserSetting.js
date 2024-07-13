@@ -40,7 +40,7 @@ function UserSetting() {
       else {
         const checkForTokenValidation = async () => {
           await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
-            headers: { Authorization: 'Bearer ' + tokens1?.accessToken }, withCredentials: true })
+             withCredentials: true })
             .then((response) => {
               console.log(tokens1);
               console.log(response.data.data);
@@ -59,9 +59,7 @@ function UserSetting() {
 
   const saveChange = async() => {
     await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/users/updateAccountDetails`, {username, email},
-      {headers: {
-        Authorization: 'Bearer '+ tokens?.accessToken
-      }}
+      {withCredentials:true}
     ).then((response) => {
       console.log(response);
       localStorage.setItem('user', JSON.stringify(response.data.data));

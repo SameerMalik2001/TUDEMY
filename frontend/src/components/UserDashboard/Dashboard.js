@@ -192,7 +192,6 @@ const Dashboard = () => {
         const checkForTokenValidation = async () => {
           await axios
             .get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
-              headers: { Authorization: "Bearer " + tokens1?.accessToken },
               withCredentials: true,
             })
             .then((response) => {
@@ -214,9 +213,7 @@ const Dashboard = () => {
     console.log("logout " + tokens.accessToken);
     await axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/api/users/logout`, null, {
-        headers: {
-          Authorization: "Bearer " + tokens.accessToken,
-        },
+
         withCredentials: true,
       })
       .then((response) => {
