@@ -42,12 +42,10 @@ const userSchema = new mongoose.Schema(
         },
         profession: {
             type: String,
-            required: true,
             default: ''
         },
         about: {
             type: String,
-            required: true,
             default: ''
         }
     },
