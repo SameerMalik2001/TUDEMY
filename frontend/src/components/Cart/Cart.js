@@ -143,7 +143,7 @@ const Cart = () => {
 
   const logout = async () => {
     console.log("logout "+ tokens.accessToken);
-    await axios.post(`http://localhost:5000/api/users/logout`,null,  {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/logout`,null,  {
       withCredentials: true
     })
     .then((response) => {
@@ -171,7 +171,7 @@ const Cart = () => {
     }
     setCourseLoading(true);
     const fetchCart = async() =>{
-      await axios.put(`http://localhost:5000/api/carts/${UserM?._id}/fetchingCart`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/carts/${UserM?._id}/fetchingCart`, null, {withCredentials:true})
       .then(response => {setCart(response.data.data);setCourseLoading(false)})
       .catch(err => console.log(err))
     }
@@ -181,7 +181,7 @@ const Cart = () => {
   const again = async() =>{
     setCourseLoading(true)
     const fetchCart = async() =>{
-      await axios.put(`http://localhost:5000/api/carts/${UserM?._id}/fetchingCart`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/carts/${UserM?._id}/fetchingCart`, null, {withCredentials:true})
       .then(response => {setCart(response.data.data);setCourseLoading(false)})
       .catch(err => console.log(err))
     }
@@ -197,7 +197,7 @@ const Cart = () => {
     setTimeout(()=>{
       if(!tokens) {
         const fetchCookies = async () => {
-          await axios.get(`http://localhost:5000/api/users/getCookies`, {withCredentials: true})
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/getCookies`, {withCredentials: true})
           .then((response) => {
             setTokens(response.data.data)
             TokenValidation(response.data.data)
@@ -219,7 +219,7 @@ const Cart = () => {
       }
       else {
         const checkForTokenValidation = async () => {
-          await axios.get(`http://localhost:5000/api/users/tokenValidation`, {
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
             headers: { Authorization: 'Bearer ' + tokens1?.accessToken }, withCredentials: true })
             .then((response) => {
               console.log(tokens1);
@@ -253,7 +253,7 @@ const Cart = () => {
       "Content-Type": "application/json",
     };
     const response = await fetch(
-      "http://localhost:5000/api/payments/paymentDone",
+      "${process.env.REACT_APP_BACKEND_URL}/api/payments/paymentDone",
       {
         method: "POST",
         headers: headers,
@@ -277,7 +277,7 @@ const Cart = () => {
     if(loggedIn === false) {
       return redirect('/signin')
     }
-    await axios.post(`http://localhost:5000/api/wishlists/${UserM?._id}/${courseId}/createwishlist`, null, {withCredentials:true})
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/wishlists/${UserM?._id}/${courseId}/createwishlist`, null, {withCredentials:true})
     .then(response => {console.log(response); setCart(prev=>[prev, 0]);again()})
     .catch(err => console.log(err))
   }
@@ -287,7 +287,7 @@ const Cart = () => {
       return redirect('/signin')
     }
     e.stopPropagation();
-    await axios.delete(`http://localhost:5000/api/carts/${UserM?._id}/${courseId}/delete`, {withCredentials:true})
+    await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/carts/${UserM?._id}/${courseId}/delete`, {withCredentials:true})
     .then(response => {console.log(response.data.data);setCart(prev=>[prev, 0]);again()})
     .catch(err => console.log(err))
   }
@@ -298,7 +298,7 @@ const Cart = () => {
     }
     
     const searchCourses = async()=> {
-      await axios.get(`http://localhost:5000/api/courses/${searchValue}/searchCourse`)
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${searchValue}/searchCourse`)
       .then(response=>{setSearchCourses(response.data.data);
         if(response.data.data.length > 0) {
           searchbarOpen()

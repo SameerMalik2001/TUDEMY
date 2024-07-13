@@ -9,7 +9,7 @@ function ChangePassword() {
 
   const ChangePassword = async () => {
     if(confirmPassword === newPassword) {
-      await axios.put(`http://localhost:5000/api/users/changePassword`, 
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/users/changePassword`, 
       {oldPassword, newPassword},
       {withCredentials: true}
       )

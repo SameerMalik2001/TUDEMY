@@ -153,7 +153,7 @@ const CreateCourse = () => {
     setTimeout(()=>{
       if(!tokens) {
         const fetchCookies = async () => {
-          await axios.get(`http://localhost:5000/api/users/getCookies`, {withCredentials: true})
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/getCookies`, {withCredentials: true})
           .then((response) => {
             setTokens(response.data.data)
             TokenValidation(response.data.data)
@@ -165,7 +165,7 @@ const CreateCourse = () => {
     }, 200)
 
     const fetchCourseDraft = async()=> {
-      await axios.put(`http://localhost:5000/api/coursedrafts/fetchByCourseDraftId`,{ courseDraftId }, { withCredentials: true })
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/coursedrafts/fetchByCourseDraftId`,{ courseDraftId }, { withCredentials: true })
        .then((response) => {
           console.log(response.data.data);
           setCourseDraft(response.data.data.courseDraft)
@@ -181,7 +181,7 @@ const CreateCourse = () => {
   }, []);
 
   const fetchCourseDraftAgain = async()=> {
-    await axios.put(`http://localhost:5000/api/coursedrafts/fetchByCourseDraftId`,{ courseDraftId }, { withCredentials: true })
+    await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/coursedrafts/fetchByCourseDraftId`,{ courseDraftId }, { withCredentials: true })
      .then((response) => {
         console.log(response.data.data);
         setCourseDraft(response.data.data.courseDraft)
@@ -201,7 +201,7 @@ const CreateCourse = () => {
       } 
       else {
         const checkForTokenValidation = async () => {
-          await axios.get(`http://localhost:5000/api/users/tokenValidation`, {
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
             headers: { Authorization: 'Bearer ' + tokens1?.accessToken }, withCredentials: true })
             .then((response) => {
               console.log(tokens1);
@@ -221,7 +221,7 @@ const CreateCourse = () => {
 
   const logout = async () => {
     console.log("logout "+ tokens.accessToken);
-    await axios.post(`http://localhost:5000/api/users/logout`,null,  {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/logout`,null,  {
       headers: {
          Authorization: 'Bearer '+ tokens.accessToken 
       },
@@ -268,7 +268,7 @@ const CreateCourse = () => {
     }
     
     const searchCourses = async()=> {
-      await axios.get(`http://localhost:5000/api/courses/${searchValue}/searchCourse`)
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${searchValue}/searchCourse`)
       .then(response=>{setSearchCourses(response.data.data);
         if(response.data.data.length > 0) {
           searchbarOpen()
@@ -293,7 +293,7 @@ const CreateCourse = () => {
   }
 
   const updateCourseDraft = async(data)=>{
-    await axios.put(`http://localhost:5000/api/coursedrafts/updateTextData`, {courseDraftId, ...data}, {withCredentials:true})
+    await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/coursedrafts/updateTextData`, {courseDraftId, ...data}, {withCredentials:true})
     .then(response =>{console.log(response.data.data); setCourseDraft(response.data.data)})
     .catch(err =>console.log(err))
   }
@@ -310,7 +310,7 @@ const CreateCourse = () => {
 
   const CreateCourse = async () => {
     fetchCourseDraftAgain()
-    await axios.post(`http://localhost:5000/api/courses/createCourseByDraft`, {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/courses/createCourseByDraft`, {
       _id: courseDraft._id,
       owner: courseDraft.owner,
       title: courseDraft.title,
@@ -342,7 +342,7 @@ const CreateCourse = () => {
 
   const updateCourseFn = async () => {
     fetchCourseDraftAgain()
-    await axios.put(`http://localhost:5000/api/courses/${courseDraft?._id}/updatecourse`, {
+    await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${courseDraft?._id}/updatecourse`, {
       title: courseDraft.title,
       languages: courseDraft.languages,
       thumbnail_url: courseDraft.thumbnail_url,

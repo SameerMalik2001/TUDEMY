@@ -147,7 +147,7 @@ function Home() {
 
   useEffect(()=>{
     const fetchCookies = async () => {
-      await axios.get(`http://localhost:5000/api/users/getCookies`, {withCredentials: true})
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/getCookies`, {withCredentials: true})
       .then((response) => {
         console.log(response.data.data);
         setTokens(response.data.data)
@@ -164,7 +164,7 @@ function Home() {
     setTimeout(()=>{
       if(!tokens) {
         const fetchCookies = async () => {
-          await axios.get(`http://localhost:5000/api/users/getCookies`, {withCredentials: true})
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/getCookies`, {withCredentials: true})
           .then((response) => {
             setTokens(response.data.data)
             TokenValidation(response.data.data)
@@ -176,14 +176,14 @@ function Home() {
     }, 200)
 
     const fethingCourse = async () => {
-      await axios.get(`http://localhost:5000/api/courses`)
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/courses`)
         .then((response) => {setCourses(response.data.data);setLogoutCourses(response.data.data)})
         .catch((error) => console.log(error));
     };
     fethingCourse();
 
     const fethingPurchasedCourse = async () => {
-      await axios.put(`http://localhost:5000/api/courses/PurchasedCourses`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/courses/PurchasedCourses`, null, {withCredentials:true})
         .then((response) => {setPurchasedCourse(response.data.data.map(it=>it.courseId))})
         .catch((error) => console.log(error));
     };
@@ -201,7 +201,7 @@ function Home() {
       } 
       else {
         const checkForTokenValidation = async () => {
-          await axios.get(`http://localhost:5000/api/users/tokenValidation`, {
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
             headers: { Authorization: 'Bearer ' + tokens1?.accessToken }, withCredentials: true })
             .then((response) => {
               // console.log(tokens1);
@@ -221,7 +221,7 @@ function Home() {
 
   const logout = async () => {
     console.log("logout "+ tokens.accessToken);
-    await axios.post(`http://localhost:5000/api/users/logout`,null,  {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/logout`,null,  {
       headers: {
          Authorization: 'Bearer '+ tokens.accessToken 
       },
@@ -263,7 +263,7 @@ function Home() {
     }
     
     const searchCourses = async()=> {
-      await axios.get(`http://localhost:5000/api/courses/${searchValue}/searchCourse`)
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${searchValue}/searchCourse`)
       .then(response=>{setSearchCourses(response.data.data);
         console.log("chala hai search coures");
         if(response.data.data.length > 0) {

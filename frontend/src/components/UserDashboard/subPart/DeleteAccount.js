@@ -6,13 +6,13 @@ function DeleteAccount() {
   const [password, setPassword] = useState(null);
 
   const checkPassword = async () => {
-    await axios.post(`http://localhost:5000/api/users/checkPassword`,
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/checkPassword`,
         { password },
         { withCredentials: true }
       )
       .then(async (response) => {
         if (response.data.data === true) {
-          await axios.post(`http://localhost:5000/api/users/deleteAccount`,
+          await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/deleteAccount`,
               null,
               { withCredentials: true }
             )

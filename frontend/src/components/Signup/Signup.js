@@ -30,7 +30,7 @@ const Signup = () => {
   const submit = (e) => {
     e.preventDefault();
     const createUser = async()=>{
-      await axios.post(`http://localhost:5000/api/users/register`, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/register`, {
         username: username,
         email: email,
         password:password

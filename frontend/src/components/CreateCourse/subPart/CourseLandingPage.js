@@ -171,7 +171,7 @@ const CourseLandingPage =(props)=> {
       props.setRadio1(2)
       props.updateCourse({title, certificate, category: [category, subCategory], description: textArea, about_course:aboutCourse})
       const setThumbnailsInDb = async() => {
-        await axios.put(`http://localhost:5000/api/coursedrafts/uploadThumbnailImage`, 
+        await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/coursedrafts/uploadThumbnailImage`, 
         {courseDraftId: props.di, thumbnail_image_url: thumbnail, thumbnailURL}, 
         {
           headers: {

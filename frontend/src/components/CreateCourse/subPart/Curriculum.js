@@ -97,7 +97,7 @@ const Curriculum = (props) => {
   useEffect(() => {
     const fetchvideoData = async () => {
       await axios
-        .get(`http://localhost:5000/api/videos/${props.di}/logout`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}/api/videos/${props.di}/logout`)
         .then((response) => {
           setVideoData(response.data.data);
           if (response.data.data.length > 0) {
@@ -288,7 +288,7 @@ const Curriculum = (props) => {
         console.log(doc, "in updateForVideoNullIdNull");
         await axios
           .put(
-            `http://localhost:5000/api/videos/updateForVideoNullIdNull`,
+            `${process.env.REACT_APP_BACKEND_URL}/api/videos/updateForVideoNullIdNull`,
             {
               lecture: doc.lecture,
               section: doc.section,
@@ -316,7 +316,7 @@ const Curriculum = (props) => {
         console.log(doc, "in updateForVideoNullIdNotNull");
         await axios
           .put(
-            `http://localhost:5000/api/videos/${doc._id}/updateForVideoNullIdNotNull`,
+            `${process.env.REACT_APP_BACKEND_URL}/api/videos/${doc._id}/updateForVideoNullIdNotNull`,
             {
               lecture: doc.lecture,
               section: doc.section,
@@ -342,7 +342,7 @@ const Curriculum = (props) => {
           .catch((error) => console.log(error));
       } else if (doc.video !== null && doc._id === null) {
         console.log(doc, "in updateForVideoNotNullIdNull");
-        await axios.put(`http://localhost:5000/api/videos/updateForVideoNotNullIdNull`,
+        await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/videos/updateForVideoNotNullIdNull`,
             {
               lecture :doc.lecture,
               section :doc.section,
@@ -375,7 +375,7 @@ const Curriculum = (props) => {
         console.log(doc, "in updateVideoBothNotNull");
         await axios
           .put(
-            `http://localhost:5000/api/videos/${doc._id}/updateVideoBothNotNull`,
+            `${process.env.REACT_APP_BACKEND_URL}/api/videos/${doc._id}/updateVideoBothNotNull`,
             {
               lecture: doc.lecture,
               section: doc.section,
@@ -409,7 +409,7 @@ const Curriculum = (props) => {
 
     lectureToBeDeleted.map(async (id) => {
       await axios
-        .delete(`http://localhost:5000/api/videos/${id}/deleteById`, {
+        .delete(`${process.env.REACT_APP_BACKEND_URL}/api/videos/${id}/deleteById`, {
           withCredentials: true,
         })
         .then((response) => {

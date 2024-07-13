@@ -16,7 +16,7 @@ const Success = () => {
 
   useEffect(()=>{
     const createPurchase = async ()=>{
-      await axios.post(`http://localhost:5000/api/purchases/${courseId}/createPurchase`, null, {withCredentials:true
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/purchases/${courseId}/createPurchase`, null, {withCredentials:true
       })
       .then(response => console.log(response))
       .catch(err => console.log(err))

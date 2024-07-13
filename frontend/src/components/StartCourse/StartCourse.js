@@ -11,7 +11,7 @@ const StartCourse = () => {
 
   
   const savenext = async()=>{
-    await axios.put(`http://localhost:5000/api/coursedrafts/updateTextData/`, {courseDraftId:null, title}, {withCredentials:true})
+    await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/coursedrafts/updateTextData/`, {courseDraftId:null, title}, {withCredentials:true})
     .then(response=>navigate(`/${response?.data?.data?._id}/createCourse`))
     .catch(err=>console.log(err))
   }

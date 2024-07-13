@@ -19,12 +19,12 @@ function YourCourse() {
 
   useEffect(() => {
     const fetchingCreatedCourse = async () => {
-      await axios.put(`http://localhost:5000/api/courses/fetchUserOwnCourse`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/courses/fetchUserOwnCourse`, null, {withCredentials:true})
       .then(response => setCreatedCourse(response.data.data))
       .catch(error => console.log(error))
     }
     const fetchingPurchasedCourse = async () => {
-      await axios.put(`http://localhost:5000/api/courses/PurchasedCourses`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/courses/PurchasedCourses`, null, {withCredentials:true})
       .then(response => setPurchasedCourses(response.data.data))
       .catch(error => console.log(error))
     }

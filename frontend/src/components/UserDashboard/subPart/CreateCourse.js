@@ -10,7 +10,7 @@ function CreateCourseTab(props) {
 
   useEffect(() => {
     const fetchAllDrafts = async ()=>{
-      await axios.put(`http://localhost:5000/api/coursedrafts/fetchAllDrafts`, null, {withCredentials: true })
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/coursedrafts/fetchAllDrafts`, null, {withCredentials: true })
       .then((response) => {
         console.log(response.data.data);
         setCourseDraft(response.data.data)

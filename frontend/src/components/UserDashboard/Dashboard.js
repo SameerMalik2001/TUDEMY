@@ -164,7 +164,7 @@ const Dashboard = () => {
       if (!tokens) {
         const fetchCookies = async () => {
           await axios
-            .get(`http://localhost:5000/api/users/getCookies`, {
+            .get(`${process.env.REACT_APP_BACKEND_URL}/api/users/getCookies`, {
               withCredentials: true,
             })
             .then((response) => {
@@ -191,7 +191,7 @@ const Dashboard = () => {
       } else {
         const checkForTokenValidation = async () => {
           await axios
-            .get(`http://localhost:5000/api/users/tokenValidation`, {
+            .get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
               headers: { Authorization: "Bearer " + tokens1?.accessToken },
               withCredentials: true,
             })
@@ -213,7 +213,7 @@ const Dashboard = () => {
   const logout = async () => {
     console.log("logout " + tokens.accessToken);
     await axios
-      .post(`http://localhost:5000/api/users/logout`, null, {
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/users/logout`, null, {
         headers: {
           Authorization: "Bearer " + tokens.accessToken,
         },
@@ -261,7 +261,7 @@ const Dashboard = () => {
 
     const searchCourses = async () => {
       await axios
-        .get(`http://localhost:5000/api/courses/${searchValue}/searchCourse`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${searchValue}/searchCourse`)
         .then((response) => {
           setSearchCourses(response.data.data);
           if (response.data.data.length > 0) {

@@ -17,7 +17,7 @@ function Wishlist() {
 
   useEffect(() => {
     const fetchingWishlistCourse = async () => {
-      await axios.put(`http://localhost:5000/api/wishlists/${UserM?._id}/fetchWishlist`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/wishlists/${UserM?._id}/fetchWishlist`, null, {withCredentials:true})
       .then(response => {console.log(response.data.data);setCreatedCourse(response.data.data)})
       .catch(error => console.log(error))
     }

@@ -143,7 +143,7 @@ const Wishlist = () => {
 
   const logout = async () => {
     console.log("logout "+ tokens.accessToken);
-    await axios.post(`http://localhost:5000/api/users/logout`,null,  {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/logout`,null,  {
       withCredentials: true
     })
     .then((response) => {
@@ -171,7 +171,7 @@ const Wishlist = () => {
     }
     setCourseLoading(true);
     const fetchCart = async() =>{
-      await axios.put(`http://localhost:5000/api/wishlists/${UserM?._id}/fetchWishlist`, null ,{withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/wishlists/${UserM?._id}/fetchWishlist`, null ,{withCredentials:true})
       .then(response => {setCart(response.data.data);setCourseLoading(false)})
       .catch(err => console.log(err))
     }
@@ -184,7 +184,7 @@ const Wishlist = () => {
     }
     setCourseLoading(true)
     const fetchCart = async() =>{
-      await axios.put(`http://localhost:5000/api/wishlists/${UserM?._id}/fetchWishlist`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/wishlists/${UserM?._id}/fetchWishlist`, null, {withCredentials:true})
       .then(response => {setCart(response.data.data);setCourseLoading(false)})
       .catch(err => console.log(err))
     }
@@ -200,7 +200,7 @@ const Wishlist = () => {
     setTimeout(()=>{
       if(!tokens) {
         const fetchCookies = async () => {
-          await axios.get(`http://localhost:5000/api/users/getCookies`, {withCredentials: true})
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/getCookies`, {withCredentials: true})
           .then((response) => {
             setTokens(response.data.data)
             TokenValidation(response.data.data)
@@ -222,7 +222,7 @@ const Wishlist = () => {
       } 
       else {
         const checkForTokenValidation = async () => {
-          await axios.get(`http://localhost:5000/api/users/tokenValidation`, {
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
             headers: { Authorization: 'Bearer ' + tokens1?.accessToken }, withCredentials: true })
             .then((response) => {
               console.log(tokens1);
@@ -243,14 +243,14 @@ const Wishlist = () => {
 
   const addTOCart = async(e, courseId) => {
     e.stopPropagation()
-    await axios.post(`http://localhost:5000/api/carts/${UserM?._id}/${courseId}/createCart`, null ,{withCredentials:true})
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/carts/${UserM?._id}/${courseId}/createCart`, null ,{withCredentials:true})
     .then(response => {console.log(response.data.data); setCart(prev=>[prev, 0]);again()})
     .catch(err => console.log(err))
   }
 
   const deleteFromWishlist = async (e, courseId) => {
     e.stopPropagation()
-    await axios.delete(`http://localhost:5000/api/wishlists/${UserM?._id}/${courseId}/delete`, {withCredentials:true})
+    await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/wishlists/${UserM?._id}/${courseId}/delete`, {withCredentials:true})
     .then(response => {console.log(response.data.data);setCart(prev=>[prev, 0]);again()})
     .catch(err => console.log(err))
   }
@@ -261,7 +261,7 @@ const Wishlist = () => {
     }
     
     const searchCourses = async()=> {
-      await axios.get(`http://localhost:5000/api/courses/${searchValue}/searchCourse`)
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${searchValue}/searchCourse`)
       .then(response=>{setSearchCourses(response.data.data);
         if(response.data.data.length > 0) {
           searchbarOpen()

@@ -190,7 +190,7 @@ const SingleCourse = () => {
     setTimeout(()=>{
       if(!tokens) {
         const fetchCookies = async () => {
-          await axios.get(`http://localhost:5000/api/users/getCookies`, {withCredentials: true})
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/getCookies`, {withCredentials: true})
           .then((response) => {
             setTokens(response.data.data)
             TokenValidation(response.data.data)
@@ -203,20 +203,20 @@ const SingleCourse = () => {
 
     const fethingCourse = async () => {
       console.log("fetchingCourse");
-      await axios.put(`http://localhost:5000/api/courses/${courseId}`, null, {withCredentials: true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${courseId}`, null, {withCredentials: true})
         .then((response) => {setCourses(response.data.data);setPurchased(response.data.data?.purchased)})
         .catch((error) => console.log(error));
     };
 
     const fethingCourse2 = async () => {
       console.log("fetchingCourse2");
-      await axios.get(`http://localhost:5000/api/courses/${courseId}/for/LogoutUser`)
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${courseId}/for/LogoutUser`)
         .then((response) => {setCourses(response.data.data);console.log(response.data.data);})
         .catch((error) => console.log(error));
     };
 
     const fetchingVideos = async()=>{
-      await axios.get(`http://localhost:5000/api/videos/${courseId}/logout`)
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/videos/${courseId}/logout`)
        .then((response) => {setVideoData(transformData(response.data.data))})
        .catch((error) => console.log(error));
     }
@@ -240,7 +240,7 @@ const SingleCourse = () => {
       } 
       else {
         const checkForTokenValidation = async () => {
-          await axios.get(`http://localhost:5000/api/users/tokenValidation`, {
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
             headers: { Authorization: 'Bearer ' + tokens1?.accessToken }, withCredentials: true })
             .then((response) => {
               console.log(tokens1);
@@ -260,7 +260,7 @@ const SingleCourse = () => {
 
   const logout = async () => {
     console.log("logout "+ tokens.accessToken);
-    await axios.post(`http://localhost:5000/api/users/logout`,null,  {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/logout`,null,  {
       headers: {
          Authorization: 'Bearer '+ tokens.accessToken 
       },
@@ -288,14 +288,14 @@ const SingleCourse = () => {
 
   useEffect(()=>{
     const check = async()=>{
-      await axios.put(`http://localhost:5000/api/carts/${UserM?._id}/${courseId}/check`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/carts/${UserM?._id}/${courseId}/check`, null, {withCredentials:true})
       .then(response => {console.log(response.data.data); setCarted(response.data.data)})
       .catch(err => console.log(err))
     }
     check()
 
     const check1 = async()=>{
-      await axios.put(`http://localhost:5000/api/wishlists/${UserM?._id}/${courseId}/check`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/wishlists/${UserM?._id}/${courseId}/check`, null, {withCredentials:true})
       .then(response => {console.log(response.data.data); setWishlisted(response.data.data)})
       .catch(err => console.log(err))
     }
@@ -309,7 +309,7 @@ const SingleCourse = () => {
     if(loggedIn === false) {
       return redirect('/signin')
     }
-    await axios.post(`http://localhost:5000/api/carts/${UserM?._id}/${courseId}/createCart`, null, {withCredentials:true})
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/carts/${UserM?._id}/${courseId}/createCart`, null, {withCredentials:true})
     .then(response => {console.log(response); setCarted(true); setWishlisted(false)})
     .catch(err => console.log(err))
   }
@@ -318,7 +318,7 @@ const SingleCourse = () => {
     if(loggedIn === false) {
       return redirect('/signin')
     }
-    await axios.post(`http://localhost:5000/api/wishlists/${UserM?._id}/${courseId}/createwishlist`, null, {withCredentials:true})
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/wishlists/${UserM?._id}/${courseId}/createwishlist`, null, {withCredentials:true})
     .then(response => {console.log(response); setWishlisted(true); setCarted(false)})
     .catch(err => console.log(err))
   }
@@ -327,7 +327,7 @@ const SingleCourse = () => {
     if(loggedIn === false) {
       return redirect('/signin')
     }
-    await axios.delete(`http://localhost:5000/api/carts/${UserM?._id}/${courseId}/delete`, {withCredentials:true})
+    await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/carts/${UserM?._id}/${courseId}/delete`, {withCredentials:true})
     .then(response => {console.log(response.data.data);setCarted(false)})
     .catch(err => console.log(err))
   }
@@ -336,7 +336,7 @@ const SingleCourse = () => {
     if(loggedIn === false) {
       return redirect('/signin')
     }
-    await axios.delete(`http://localhost:5000/api/wishlists/${UserM?._id}/${courseId}/delete`, {withCredentials:true})
+    await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/wishlists/${UserM?._id}/${courseId}/delete`, {withCredentials:true})
     .then(response => {console.log(response.data.data);setWishlisted(false)})
     .catch(err => console.log(err))
   }
@@ -357,7 +357,7 @@ const SingleCourse = () => {
       "Content-Type": "application/json",
     };
     const response = await fetch(
-      "http://localhost:5000/api/payments/paymentDone",
+      "${process.env.REACT_APP_BACKEND_URL}/api/payments/paymentDone",
       {
         method: "POST",
         headers: headers,
@@ -383,7 +383,7 @@ const SingleCourse = () => {
     }
     
     const searchCourses = async()=> {
-      await axios.get(`http://localhost:5000/api/courses/${searchValue}/searchCourse`)
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${searchValue}/searchCourse`)
       .then(response=>{setSearchCourses(response.data.data);
         if(response.data.data.length > 0) {
           searchbarOpen()

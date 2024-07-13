@@ -154,7 +154,7 @@ const VideoPage = () => {
 
   const logout = async () => {
     console.log("logout "+ tokens.accessToken);
-    await axios.post(`http://localhost:5000/api/users/logout`,null,  {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/logout`,null,  {
       headers: {
          Authorization: 'Bearer '+ tokens.accessToken 
       },
@@ -223,7 +223,7 @@ const VideoPage = () => {
     setTimeout(()=>{
       if(!tokens) {
         const fetchCookies = async () => {
-          await axios.get(`http://localhost:5000/api/users/getCookies`, {withCredentials: true})
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/getCookies`, {withCredentials: true})
           .then((response) => {
             setTokens(response.data.data)
             TokenValidation(response.data.data)
@@ -235,7 +235,7 @@ const VideoPage = () => {
     }, 200)
 
     const fetchVideos = async () => {
-      await axios.put(`http://localhost:5000/api/videos/${courseId}`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/videos/${courseId}`, null, {withCredentials:true})
      .then((response) => {
       console.log(response.data.data);
       const ddddd = transformData(response.data.data)
@@ -247,7 +247,7 @@ const VideoPage = () => {
     fetchVideos()
 
     const fetchCourse = async () => {
-      await axios.put(`http://localhost:5000/api/courses/${courseId}`, null, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${courseId}`, null, {withCredentials:true})
      .then((response) => {
       console.log(response.data.data);
       if(response.data.data?.purchased === false) {
@@ -260,7 +260,7 @@ const VideoPage = () => {
     fetchCourse()
 
     const fetchStudentCount = async () => {
-      await axios.put(`http://localhost:5000/api/purchases/${courseId}/studentCount`,
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/purchases/${courseId}/studentCount`,
         null,
         {
           withCredentials: true,
@@ -278,7 +278,7 @@ const VideoPage = () => {
 
   useEffect(()=>{
     const fetchReviews = async () => {
-      await axios.put(`http://localhost:5000/api/reviews/${courseId}/fetchCourses`, null, {withCredentials: true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/reviews/${courseId}/fetchCourses`, null, {withCredentials: true})
      .then((response) => {
       console.log(response.data.data);
       // find the average of star rating
@@ -341,7 +341,7 @@ const VideoPage = () => {
       } 
       else {
         const checkForTokenValidation = async () => {
-          await axios.get(`http://localhost:5000/api/users/tokenValidation`, {
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
             headers: { Authorization: 'Bearer ' + tokens1?.accessToken }, withCredentials: true })
             .then((response) => {
               console.log(tokens1);
@@ -366,7 +366,7 @@ const VideoPage = () => {
     }
     
     const searchCourses = async()=> {
-      await axios.get(`http://localhost:5000/api/courses/${searchValue}/searchCourse`)
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${searchValue}/searchCourse`)
       .then(response=>{setSearchCourses(response.data.data);
         if(response.data.data.length > 0) {
           searchbarOpen()
@@ -475,7 +475,7 @@ const VideoPage = () => {
       alert('Please write a review text before submitting')
     } else {
       if(!reviews?.yourReview?.text) {
-        await axios.post(`http://localhost:5000/api/reviews/${courseId}/createReview`, 
+        await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/reviews/${courseId}/createReview`, 
           {
             text: reviewText,
             star: rating
@@ -493,7 +493,7 @@ const VideoPage = () => {
           console.log(error);
         })
       } else {
-        await axios.put(`http://localhost:5000/api/reviews/${reviews?.yourReview?._id}/update`, 
+        await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/reviews/${reviews?.yourReview?._id}/update`, 
           {
             text: reviewText,
             star: rating
@@ -515,7 +515,7 @@ const VideoPage = () => {
   }
 
   const DeleteReview = async() => {
-    await axios.delete(`http://localhost:5000/api/reviews/${reviews?.yourReview?._id}/delete`, 
+    await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/reviews/${reviews?.yourReview?._id}/delete`, 
           {
             withCredentials: true
           }

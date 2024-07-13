@@ -153,7 +153,7 @@ const Search = () => {
       if (!tokens) {
         const fetchCookies = async () => {
           await axios
-            .get(`http://localhost:5000/api/users/getCookies`, {
+            .get(`${process.env.REACT_APP_BACKEND_URL}/api/users/getCookies`, {
               withCredentials: true,
             })
             .then((response) => {
@@ -169,7 +169,7 @@ const Search = () => {
     const addInterest = async () => {
       await axios
         .put(
-          "http://localhost:5000/api/users/updateInterest",
+          "${process.env.REACT_APP_BACKEND_URL}/api/users/updateInterest",
           { topic },
           { withCredentials: true }
         )
@@ -182,7 +182,7 @@ const Search = () => {
   const addInterest = async (item) => {
     await axios
       .put(
-        "http://localhost:5000/api/users/updateInterest",
+        "${process.env.REACT_APP_BACKEND_URL}/api/users/updateInterest",
         { item },
         { withCredentials: true }
       )
@@ -195,7 +195,7 @@ const Search = () => {
       console.log("fetching...");
       await axios
         .post(
-          `http://localhost:5000/api/courses/filterFetching/${JSON.stringify({
+          `${process.env.REACT_APP_BACKEND_URL}/api/courses/filterFetching/${JSON.stringify({
             topic,
             video_duration,
             level,
@@ -230,7 +230,7 @@ const Search = () => {
 
     const searchCourses = async () => {
       await axios
-        .get(`http://localhost:5000/api/courses/${searchValue}/searchCourse`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}/api/courses/${searchValue}/searchCourse`)
         .then((response) => {
           setSearchCourses(response.data.data);
           if (response.data.data.length > 0) {
@@ -268,7 +268,7 @@ const Search = () => {
       } else {
         const checkForTokenValidation = async () => {
           await axios
-            .get(`http://localhost:5000/api/users/tokenValidation`, {
+            .get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
               headers: { Authorization: "Bearer " + tokens1?.accessToken },
               withCredentials: true,
             })
@@ -290,7 +290,7 @@ const Search = () => {
   const logout = async () => {
     console.log("logout " + tokens.accessToken);
     await axios
-      .post(`http://localhost:5000/api/users/logout`, null, {
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/users/logout`, null, {
         headers: {
           Authorization: "Bearer " + tokens.accessToken,
         },

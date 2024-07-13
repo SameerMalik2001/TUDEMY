@@ -21,7 +21,7 @@ function ProfessionalSetting() {
   const handleSubmit = async () => {
     console.log(profession, about)
     if(profession.length > 0 && about.length > 0) {
-      await axios.put(`http://localhost:5000/api/users/updateProfessionalInfo`, {profession, about}, {withCredentials:true})
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/users/updateProfessionalInfo`, {profession, about}, {withCredentials:true})
       .then(response=>{console.log(response);localStorage.setItem('user',JSON.stringify(response.data.data))})
       .catch(err => {console.log(err)})
     }

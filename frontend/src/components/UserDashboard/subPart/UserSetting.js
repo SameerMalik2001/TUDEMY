@@ -16,7 +16,7 @@ function UserSetting() {
     setTimeout(()=>{
       if(!tokens) {
         const fetchCookies = async () => {
-          await axios.get(`http://localhost:5000/api/users/getCookies`, {withCredentials: true})
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/getCookies`, {withCredentials: true})
           .then((response) => {
             setTokens(response.data.data)
             TokenValidation(response.data.data)
@@ -39,7 +39,7 @@ function UserSetting() {
       } 
       else {
         const checkForTokenValidation = async () => {
-          await axios.get(`http://localhost:5000/api/users/tokenValidation`, {
+          await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/tokenValidation`, {
             headers: { Authorization: 'Bearer ' + tokens1?.accessToken }, withCredentials: true })
             .then((response) => {
               console.log(tokens1);
@@ -58,7 +58,7 @@ function UserSetting() {
   }
 
   const saveChange = async() => {
-    await axios.put(`http://localhost:5000/api/users/updateAccountDetails`, {username, email},
+    await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/users/updateAccountDetails`, {username, email},
       {headers: {
         Authorization: 'Bearer '+ tokens?.accessToken
       }}
